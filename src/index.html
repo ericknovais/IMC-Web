@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="estilo/estilo.css">
+        <script src="scripts/myscript.js"></script>
     </head>
     <body>
         <form>
@@ -10,17 +12,17 @@
                         Peso:
                     </label>
                     <br>
-                    <input id="txtPeso" type="text" >
+                    <input required id="txtPeso" type="number" >
                 </div>
                 <div>
                     <label>
                         Altura:
                     </label>
                     <br>
-                    <input id="txtAltura" type="text" >
+                    <input required id="txtAltura" type="number" >
                 </div>
                 <br>
-                <input type="submit" value="Calcular" >
+                <input type="submit" value="Calcular" onclick="CalculaIMC()" >
             </div>
         </form>
     </body>
