@@ -3,24 +3,26 @@
     <meta charset="UTF-8">
     <head>
         <link rel="stylesheet" href="estilo/estilo.css">
-        <script src="scripts/myscript.js"></script>
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/jquery.mask.min.js"></script>
+        <script src="scripts/myscript.imc.js"></script>
     </head>
     <body>
-        <form onsubmit="return isValidForm()">
+        <form>
             <div>
                 <div>
                     <label>
                         Peso:
                     </label>
                     <br>
-                    <input required id="txtPeso" type="number" >
+                    <input required id="txtPeso">
                 </div>
                 <div>
                     <label>
                         Altura:
                     </label>
                     <br>
-                    <input required id="txtAltura" type="number" >
+                    <input required id="txtAltura">
                 </div>
                 <br>
                 <input type="submit" value="Calcular" onclick="CalculaIMC()" >
