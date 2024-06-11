@@ -9,23 +9,32 @@
     </head>
     <body>
         <form>
-            <div>
-                <div>
+            <div class ="center">
+                <div class="card">
+                    <div class="campo">
                     <label>
-                        Peso:
+                        Peso (ex.: 69,2)
                     </label>
                     <br>
                     <input required id="txtPeso">
-                </div>
-                <div>
+                    </div>
+                    <div class="campo">
                     <label>
-                        Altura:
+                        Altura (ex.: 1,70)
                     </label>
                     <br>
                     <input required id="txtAltura">
+                    </div>
+                    <input class="botao" type="submit" value="Calcular" onclick="CalculaIMC()" >
+                    <input class="botao" type="button" value="Limpa tela" onclick="Limpar()" >
                 </div>
-                <br>
-                <input type="submit" value="Calcular" onclick="CalculaIMC()" >
+                <div class="card">
+                     <div class="campo">
+                        <label id="lblIMC">
+                            <!-- Seu IMC: -->
+                        </label>
+                    </div>
+                </div>
             </div>
         </form>
     </body>

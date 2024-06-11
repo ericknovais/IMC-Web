@@ -1,3 +1,40 @@
+.center {
+    width: auto;
+    height: 150px;
+    background-color: aliceblue;
+    margin: 10px;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.campo{
+    margin: 10px;
+}
+
+.campo label{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 14px;
+}
+
+.campo input{
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.botao{
+    margin: 10px;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.card{
+    width: auto;
+    height: 150px;
+    border-width: 1px;
+    border-radius: 10px;
+    display:inline-table;
+}
+
 body{
     background-color: blue;
 }
