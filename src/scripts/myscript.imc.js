@@ -1,56 +1,61 @@
+let campoPeso = "txtPeso";
+let campoAltura = "txtAltura";
+let campoVazio = "";
+let ehInnerHTML = true;
+let lblIMC = "lblIMC";
+
 window.onload = function() {
-    $('#txtPeso, #txtAltura').mask("#.##0,00", {reverse: true});
+    $(`#${campoPeso}, #${campoAltura}`).mask("#.##0,00", {reverse: true});
 };
 
-function CalculaIMC() {
-    let peso = PegaValorDoCampo("txtPeso");
-    let altura = PegaValorDoCampo("txtAltura");
-    if(ValidaCampos(peso, altura)){
-        let imc = parseFloat(peso / (altura **2)).toFixed(2); 
-        MostraIMC(imc);
-    }
+function CalcularIMC() {
+    var peso = GetValorDoCampo(campoPeso);
+    var altura = GetValorDoCampo(campoAltura);
+
+    if(ValidarCampos(peso, altura))
+        ExibirIMC(parseFloat(peso / (altura ** 2)).toFixed(2));
+    
     CancelaSubmitDoForm();
 };
 
-function MostraIMC(imc)
+function ExibirIMC(valor)
 {
-    var textoIMC = '';
-    if(imc < 18.5 )
-        textoIMC ="Magreza";
-    else if (imc < 24.9 )
-        textoIMC = "Normal";
-    else if (imc < 30 )
-        textoIMC = "Sobrepeso";
+    var imc = campoVazio;
+    if(valor < 18.5 )
+        imc ="Magreza";
+    else if (valor < 24.9 )
+        imc = "Normal";
+    else if (valor < 30 )
+        imc = "Sobrepeso";
     else 
-        textoIMC ="Obesidade";
+        imc ="Obesidade";
     
-    SetValorCampo('lblIMC',  `Seu IMC: ${textoIMC}, ${imc}`, ehInnerHTML = true);
+    var textoIMCFormatado = `Seu IMC: ${imc}, ${valor}`;
+    SetValorDoCampo(lblIMC, textoIMCFormatado, ehInnerHTML);
 };
 
-function ValidaCampos(peso, altura)
+function ValidarCampos(peso, altura)
 {
-    if(peso === '' || altura === '')
+    if(peso === campoVazio || altura === campoVazio)
         return false;
-
-    if(peso < 0 || altura < 0)
-    {
-        alert("valores não podem ser negativos")
+    if(peso < 0 || altura < 0){
+        alert("Valores não podem ser negativos")
         return false;
     }
     return true;
 }
 
-function PegaValorDoCampo(campo){
-    return document.getElementById(campo).value.replace('.','').replace(',','.');
+function GetValorDoCampo(campo){
+    return document.getElementById(campo).value.replace('.', campoVazio).replace(',','.');
 }
 
 function Limpar(){
-    SetValorCampo('txtPeso','');
-    SetValorCampo('txtAltura','');
-    SetValorCampo('lblIMC', '', ehInnerHTML = true)
+    SetValorDoCampo(campoPeso, campoVazio);
+    SetValorDoCampo(campoAltura, campoVazio);
+    SetValorDoCampo(lblIMC, campoVazio, ehInnerHTML = true)
 }
 
-function SetValorCampo(campo, valor, ehInnerHTML = false){
+function SetValorDoCampo(campo, valor, ehInnerHTML = false){
     
     if(ehInnerHTML)
         document.getElementById(campo).innerHTML = valor;     
